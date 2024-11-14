@@ -1,3 +1,4 @@
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Tag;
@@ -27,13 +28,32 @@ public class LoginTest_Sel {
         webDriver.navigate().to(homePageURL);
     }
 
+    @After
+    public void tearDown() throws Exception {
+        try {
+            Thread.sleep(2000);
+            webDriver.close();
+            webDriver.quit();
+        } catch (Exception e) {
+            System.out.println("Đã xảy ra lỗi: " + e);
+        }
+    }
+
     @Test
     public void loginNoUsernameAndPassword() throws Exception {
        WebElement loginButton = webDriver.findElement(By.id("login-button"));
        loginButton.click();
        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(3));
        wait.until(ExpectedConditions.urlToBe("http://localhost:4200/login"));
+       WebElement continueButton = webDriver.findElement(By.id("login-button-2"));
+       continueButton.click();
+        Alert alert = wait.until(ExpectedConditions.alertIsPresent());
 
+        // Kiểm tra alert không null, nghĩa là alert đã xuất hiện
+        assertNotNull(alert, "Alert không xuất hiện khi đăng nhập mà không nhập thông tin");
+
+        // Đóng alert sau khi kiểm tra
+        alert.accept();
     }
 
     @Test

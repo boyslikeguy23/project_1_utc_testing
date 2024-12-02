@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RegisterTest_Sel {
     private WebDriver webDriver;
-    private String homePageURL = "http://localhost:4200/";
+    private String homePageURL = "https://project-1-utc-angular.onrender.com/";
 
     @Before
     public void setUp() throws Exception {
@@ -42,7 +42,7 @@ public class RegisterTest_Sel {
         WebElement loginButton = webDriver.findElement(By.id("login-button"));
         loginButton.click();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.urlToBe("http://localhost:4200/login"));
+        wait.until(ExpectedConditions.urlToBe("https://project-1-utc-angular.onrender.com/login"));
         Thread.sleep(3000);
         WebElement registerButton = webDriver.findElement(By.id("register-button"));//span[contains(text(), 'Đăng nhập | Đăng ký')]
         registerButton.click();
@@ -64,36 +64,38 @@ public class RegisterTest_Sel {
         WebElement loginButton = webDriver.findElement(By.id("login-button"));
         loginButton.click();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.urlToBe("http://localhost:4200/login"));
+        wait.until(ExpectedConditions.urlToBe("https://project-1-utc-angular.onrender.com/login"));
         Thread.sleep(3000);
         WebElement registerButton = webDriver.findElement(By.id("register-button"));//span[contains(text(), 'Đăng nhập | Đăng ký')]
         registerButton.click();
         Thread.sleep(300);
         WebElement txtEmail = webDriver.findElement(By.id("email"));
         txtEmail.sendKeys("test@test.com");
-        Thread.sleep(300);
+        Thread.sleep(3000);
         WebElement registerButton_2 = webDriver.findElement(By.xpath("//button[contains(@id='register-button-2')]"));
         registerButton_2.click();
         WebElement txtEmailDanger = webDriver.findElement(By.id("email-text-danger"));
         //WebElement txtPasswordDanger = webDriver.findElement(By.id("password-text-danger"));
         Assert.assertNotNull(txtEmailDanger);
     }
-
+    @Test
     public void registerSuccessfully() throws Exception {
         WebElement loginButton = webDriver.findElement(By.id("login-button"));
         loginButton.click();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.urlToBe("http://localhost:4200/login"));
+        wait.until(ExpectedConditions.urlToBe("https://project-1-utc-angular.onrender.com/login"));
         Thread.sleep(3000);
         WebElement registerButton = webDriver.findElement(By.id("register-button"));
         registerButton.click();
         Thread.sleep(300);
         WebElement txtEmail = webDriver.findElement(By.id("email"));
-        txtEmail.sendKeys("mxtung@gmail.com");
+        txtEmail.sendKeys("mxtung123@gmail.com");
         Thread.sleep(300);
         WebElement txtPassword = webDriver.findElement(By.id("password"));
         txtPassword.sendKeys("123456");
         Thread.sleep(300);
+        WebElement txtreTypePassword = webDriver.findElement(By.id("retype-password"));
+        txtreTypePassword.sendKeys("123456");
         WebElement registerButton_2 = webDriver.findElement(By.id("register-button-2"));
         registerButton_2.click();
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());

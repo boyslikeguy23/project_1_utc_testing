@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginTest_Sel {
     private WebDriver webDriver;
-    private String homePageURL = "http://localhost:4200/";
+    private String homePageURL = "https://project-1-utc-angular.onrender.com//";
 
     @Before
     public void setUp() throws Exception {
@@ -44,7 +44,7 @@ public class LoginTest_Sel {
        WebElement loginButton = webDriver.findElement(By.id("login-button"));
        loginButton.click();
        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(3));
-       wait.until(ExpectedConditions.urlToBe("http://localhost:4200/login"));
+       wait.until(ExpectedConditions.urlToBe("https://project-1-utc-angular.onrender.com/login"));
        WebElement continueButton = webDriver.findElement(By.id("login-button-2"));
        continueButton.click();
         Alert alert = wait.until(ExpectedConditions.alertIsPresent());
@@ -61,7 +61,7 @@ public class LoginTest_Sel {
         WebElement loginButton = webDriver.findElement(By.id("login-button"));
         loginButton.click();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.urlToBe("http://localhost:4200/login"));
+        wait.until(ExpectedConditions.urlToBe("https://project-1-utc-angular.onrender.com/login"));
         WebElement usernameField = webDriver.findElement(By.id("email"));
         usernameField.sendKeys("kuangbuckk159@gmail.com");
         Thread.sleep(20);
@@ -81,7 +81,7 @@ public class LoginTest_Sel {
         WebElement loginButton = webDriver.findElement(By.id("login-button"));
         loginButton.click();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.urlToBe("http://localhost:4200/login"));
+        wait.until(ExpectedConditions.urlToBe("https://project-1-utc-angular.onrender.com/login"));
 //        WebElement usernameField = webDriver.findElement(By.id("email"));
 //        usernameField.sendKeys("kuangbuckkk1509@gmail.com");
 //        Thread.sleep(20);
@@ -103,7 +103,7 @@ public class LoginTest_Sel {
         WebElement loginButton = webDriver.findElement(By.id("login-button"));
         loginButton.click();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.urlToBe("http://localhost:4200/login"));
+        wait.until(ExpectedConditions.urlToBe("https://project-1-utc-angular.onrender.com/login"));
         WebElement usernameField = webDriver.findElement(By.id("email"));
         usernameField.sendKeys("kuangbuckk159@gmail.com");
         Thread.sleep(200);

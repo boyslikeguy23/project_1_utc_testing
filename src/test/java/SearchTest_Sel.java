@@ -14,7 +14,7 @@ import java.time.Duration;
 
 public class SearchTest_Sel {
     private WebDriver webDriver;
-    private String homePageURL = "http://localhost:4200/";
+    private String homePageURL = "https://project-1-utc-angular.onrender.com/";
 
     @Before
     public void setUp() throws Exception {
@@ -41,9 +41,6 @@ public class SearchTest_Sel {
         WebElement btnSearch = webDriver.findElement(By.id("search-button"));
         btnSearch.click();
         Thread.sleep(2000);
-//        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
-//        wait.until(ExpectedConditions.urlToBe(homePageURL));
-
         String urlCurrent = webDriver.getCurrentUrl();
         Assert.assertEquals(homePageURL, urlCurrent);
     }
@@ -56,9 +53,19 @@ public class SearchTest_Sel {
         WebElement btnSearch = webDriver.findElement(By.id("search-button"));
         btnSearch.click();
         Thread.sleep(2000);
-
-        WebElement noEventMessage = webDriver.findElement(By.xpath("//*[contains(text(),'Không có sự kiện nào được tìm thấy')]"));
+        WebElement noEventMessage = webDriver.findElement(By.xpath("//*[contains(text(),'Hiện tại chưa có sự kiện nào')]"));
         Assert.assertNotNull(noEventMessage); // Kiểm tra thông báo được hiển thị
+    }
 
+    @Test
+    public void searchExistingEvent() throws Exception {
+        WebElement txtSearch = webDriver.findElement(By.id("input-search-textbox"));
+        txtSearch.sendKeys("VBA");
+        Thread.sleep(500);
+        WebElement btnSearch = webDriver.findElement(By.id("search-button"));
+        btnSearch.click();
+        Thread.sleep(2000);
+        WebElement noEventMessage = webDriver.findElement(By.xpath("//*[contains(text(),'VBA')]"));
+        Assert.assertNotNull(noEventMessage); // Kiểm tra thông báo được hiển thị
     }
 }

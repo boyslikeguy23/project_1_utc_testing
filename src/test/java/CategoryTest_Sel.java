@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CategoryTest_Sel {
     private WebDriver webDriver;
-    private String homePageURL = "http://localhost:4200/";
+    private String homePageURL = "https://project-1-utc-angular.onrender.com/";
 
     @Before
     public void setUp() throws Exception {
@@ -28,7 +28,7 @@ public class CategoryTest_Sel {
     public void getAllCategories_returnsListOfCategories() throws Exception {
 
         // Mở trang chứa danh sách danh mục
-        webDriver.get("http://localhost:4200");
+        webDriver.get("https://project-1-utc-angular.onrender.com");
 
         // Lấy danh sách các phần tử có class là `category-item`
         List<WebElement> categoryItems = webDriver.findElements(By.className("category-item"));
